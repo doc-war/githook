@@ -11,7 +11,7 @@ app.use(async (ctx,next) =>{
   console.timeEnd()
 } )
 app.use(router.routes()).use(router.allowedMethods())
-router.get("/wxrc-docs",async (ctx,next)=>{
+router.all("/wxrc-docs",async (ctx,next)=>{
   await exec("/bin/sh bat.js",(error,stdout,stderr)=>{
     if(error){
       console.error(`执行的错误：${error}`)
